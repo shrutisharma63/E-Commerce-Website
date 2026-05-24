@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StyleCart</title>
+
+  <!-- Font Awesome & Stylesheet -->
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+</head>
+<body>
+
+  <div id="message-box">
+    Product Added To Cart
+  </div>
+
+  <!-- Top Section -->
+  <div class="top-section">
+    <!-- Logo -->
+    <div class="logo">
+      <img src="./Assests/logo.png" alt="Logo">
+      <h1><span>Style</span>Cart</h1>
+    </div>
+
+    <!-- Search Box & Navigation Icons -->
+    <div class="right-section">
+      <div class="search-box">
+        <input type="text" placeholder="Search for products...">
+        <button>
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </div>
+
+      <div class="nav-icons">
+        <!-- Wishlist Icon -->
+        <div class="icon-box wishlist-icon" onclick="openWishlist()">
+          <i class="fa-regular fa-heart"></i>
+        </div>
+        
+        <!-- Cart Icon -->
+        <div class="icon-box cart-icon" onclick="openCart()">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span id="cart-count">0</span>
+        </div>
+
+        <!-- User Profile Icon -->
+        <div class="icon-box" onclick="openLogin()">
+          <i class="fa-regular fa-user"></i>
+        </div>
+
+        <!-- Dark Mode Icon -->
+        <div class="icon-box" onclick="toggleDarkMode()">
+          <i class="fas fa-moon"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <ul class="nav-links">
+      <li><a href="./index.html">Home</a></li>
+      <li><a href="./about.html">About</a></li>
+      <li><a href="./product.html">Products</a></li>
+      <li><a href="./contactus.html">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <!-- Slideshow Section -->
+  <div id="home" class="slider">
+    <div class="slide active">
+      <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=800&auto=format&fit=crop" alt="Slide 1">
+    </div>
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=800&auto=format&fit=crop" alt="Slide 2">
+    </div>
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=800&auto=format&fit=crop" alt="Slide 3">
+    </div>
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?q=80&w=800&auto=format&fit=crop" alt="Slide 4">
+    </div>
+  </div>
+
+  <!-- Products Section -->
+  <section class="products-section">
+    <h2 class="product-title">Trending Products</h2>
+    <div class="products-container">
+
+      <!-- PRODUCT 1 -->
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=800&auto=format&fit=crop" alt="Oversized T-Shirt">
+        <h3>Oversized T-Shirt</h3>
+        <p class="brand">Nike</p>
+        <p class="price">Fixed price: ₹999</p>
+        <p class="rating">⭐⭐⭐⭐☆</p>
+        <div class="buttons">
+          <button class="cart-btn" onclick="addToCart('Oversized T-Shirt', 'Nike', '₹999', 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=800&auto=format&fit=crop')">Add to Cart</button>
+          <button class="wish-btn" onclick="addToWishlist('Oversized T-Shirt', 'Nike', '₹999', 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=800&auto=format&fit=crop')">❤</button>
+        </div>
+      </div>
+
+      <!-- PRODUCT 2 -->
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=800&auto=format&fit=crop" alt="Women Jacket">
+        <h3>Women Jacket</h3>
+        <p class="brand">Adidas</p>
+        <p class="price">₹1999</p>
+        <p class="rating">⭐⭐⭐⭐⭐</p>
+        <div class="buttons">
+          <button class="cart-btn" onclick="addToCart('Women Jacket', 'Adidas', '₹1999', 'https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=800&auto=format&fit=crop')">Add to Cart</button>
+          <button class="wish-btn" onclick="addToWishlist('Women Jacket', 'Adidas', '₹1999', 'https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=800&auto=format&fit=crop')">❤</button>
+        </div>
+      </div>
+
+      <!-- PRODUCT 3 -->
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=800&auto=format&fit=crop" alt="Fashion Hoodie">
+        <h3>Fashion Hoodie</h3>
+        <p class="brand">Puma</p>
+        <p class="price">₹1499</p>
+        <p class="rating">⭐⭐⭐⭐☆</p>
+        <div class="buttons">
+          <button class="cart-btn" onclick="addToCart('Fashion Hoodie', 'Puma', '₹1499', 'https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=800&auto=format&fit=crop')">Add to Cart</button>
+          <button class="wish-btn" onclick="addToWishlist('Fashion Hoodie', 'Puma', '₹1499', 'https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=800&auto=format&fit=crop')">❤</button>
+        </div>
+      </div>
+
+      <!-- PRODUCT 4 -->
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?q=80&w=800&auto=format&fit=crop" alt="Stylish Coat">
+        <h3>Stylish Coat</h3>
+        <p class="brand">Zara</p>
+        <p class="price">₹2599</p>
+        <p class="rating">⭐⭐⭐⭐⭐</p>
+        <div class="buttons">
+          <button class="cart-btn" onclick="addToCart('Stylish Coat', 'Zara', '₹2599', 'https://images.unsplash.com/photo-1445205170230-053b83016050?q=80&w=800&auto=format&fit=crop')">Add to Cart</button>
+          <button class="wish-btn" onclick="addToWishlist('Stylish Coat', 'Zara', '₹2599', 'https://images.unsplash.com/photo-1445205170230-053b83016050?q=80&w=800&auto=format&fit=crop')">❤</button>
+        </div>
+      </div>
+
+      <!-- PRODUCT 5 -->
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800&auto=format&fit=crop" alt="Summer Dress">
+        <h3>Summer Dress</h3>
+        <p class="brand">H&M</p>
+        <p class="price">₹1799</p>
+        <p class="rating">⭐⭐⭐⭐☆</p>
+        <div class="buttons">
+          <button class="cart-btn" onclick="addToCart('Summer Dress', 'H&M', '₹1799', 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800&auto=format&fit=crop')">Add to Cart</button>
+          <button class="wish-btn" onclick="addToWishlist('Summer Dress', 'H&M', '₹1799', 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800&auto=format&fit=crop')">❤</button>
+        </div>
+      </div>
+
+      <!-- PRODUCT 6 -->
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=800&auto=format&fit=crop" alt="Casual Outfit">
+        <h3>Casual Outfit</h3>
+        <p class="brand">Levi's</p>
+        <p class="price">₹2299</p>
+        <p class="rating">⭐⭐⭐⭐⭐</p>
+        <div class="buttons">
+          <button class="cart-btn" onclick="addToCart('Casual Outfit', 'Levis', '₹2299', 'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=800&auto=format&fit=crop')">Add to Cart</button>
+          <button class="wish-btn" onclick="addToWishlist('Casual Outfit', 'Levis', '₹2299', 'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=800&auto=format&fit=crop')">❤</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Brands Section -->
+  <section class="brands-section">
+    <h2 class="brands-title">Popular Brands</h2>
+    <marquee behavior="scroll" direction="left" scrollamount="10">
+      <span>Nike</span> <span>Adidas</span> <span>Puma</span> <span>Zara</span> <span>H&M</span>
+      <span>Gucci</span> <span>Louis Vuitton</span> <span>Levi's</span> <span>Tommy Hilfiger</span>
+      <span>Calvin Klein</span> <span>Roadster</span> <span>US Polo</span> <span>Jack & Jones</span>
+      <span>Allen Solly</span> <span>Uniqlo</span>
+    </marquee>
+  </section>
+
+  <!-- REAL CART SIDEBAR (Fixed & Combined) -->
+  <div id="cart-sidebar">
+    <div class="cart-header">
+      <h2>My Cart</h2>
+      <span id="close-cart">✖</span>
+    </div>
+
+    <!-- Target for injected cart items -->
+    <div id="cart-items"></div>
+
+    <!-- The Checkout Panel (Hidden by default until items populate) -->
+    <div id="checkout-section" style="display: none; margin-top: auto; padding: 20px; border-top: 2px solid #eee;">
+      <p class="subtotal-text" style="font-size: 18px; font-weight: bold; margin-bottom: 15px;">
+        Subtotal: <span id="subtotal-amount">₹0</span>
+      </p>
+      <button class="proceed-btn" style="background-color: #ffd814; border: none; padding: 12px 20px; width: 100%; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 16px;">
+        Proceed to Buy
+      </button>
+    </div>
+  </div>
+
+  <!-- Wishlist Sidebar -->
+  <div id="wishlist-sidebar">
+    <div class="wishlist-header">
+      <h2>My Wishlist</h2>
+      <span id="close-wishlist">✖</span>
+    </div>
+    <div id="wishlist-items"></div>
+  </div>
+
+  <!-- Login Modal -->
+  <div id="login-modal">
+    <div class="login-box">
+      <span id="close-login">✖</span>
+      <h2>Login</h2>
+      <input type="email" id="login-email" placeholder="Enter Email">
+      <input type="password" id="login-password" maxlength="15" placeholder="Enter Password">
+      <button class="login-btn" disabled style="opacity: 0.5; cursor: not-allowed;">Login</button>
+      <p class="signup-text">Don't have an account? <span>Sign Up</span></p>
+    </div>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+</html>
