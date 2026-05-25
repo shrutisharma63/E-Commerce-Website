@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 180" role="img" aria-label="AuraStyle logo">
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e1c27a"/>
+      <stop offset="1" stop-color="#b88b3a"/>
+    </linearGradient>
+  </defs>
+  <text
+    x="50%"
+    y="52%"
+    text-anchor="middle"
+    dominant-baseline="middle"
+    font-family="Playfair Display, 'Times New Roman', serif"
+    font-size="88"
+    font-weight="700"
+    letter-spacing="1.5"
+    fill="#0b1f3a"
+    opacity="0.5"
+    transform="translate(0, 3)"
+  >
+    AuraStyle
+  </text>
+  <text
+    x="50%"
+    y="52%"
+    text-anchor="middle"
+    dominant-baseline="middle"
+    font-family="Playfair Display, 'Times New Roman', serif"
+    font-size="88"
+    font-weight="700"
+    letter-spacing="1.5"
+    fill="url(#gold)"
+  >
+    AuraStyle
+  </text>
+  <line x1="180" y1="126" x2="460" y2="126" stroke="url(#gold)" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="478" cy="126" r="6" fill="#fdf8f0" stroke="url(#gold)" stroke-width="4"/>
+</svg>

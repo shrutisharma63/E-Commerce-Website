@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 import '../styles/ContactUs.css';
 
 function ContactUs() {
@@ -7,6 +8,8 @@ function ContactUs() {
     email: '',
     message: ''
   });
+
+  useScrollReveal();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -29,21 +32,17 @@ function ContactUs() {
         
         <div className="contact-content">
           <div className="contact-info">
-            <div className="info-box">
+            <div className="info-box reveal reveal-left" style={{ '--delay': '0.05s' }}>
               <h3>📧 Email</h3>
-              <p>support@stylecart.com</p>
+              <p>support@aurastyle.com</p>
             </div>
-            <div className="info-box">
-              <h3>📞 Phone</h3>
-              <p>+91 9876543210</p>
-            </div>
-            <div className="info-box">
+            <div className="info-box reveal reveal-right" style={{ '--delay': '0.15s' }}>
               <h3>📍 Location</h3>
               <p>Jaipur, Rajasthan</p>
             </div>
           </div>
 
-          <form className="contact-form" onSubmit={handleSubmit}>
+          <form className="contact-form reveal reveal-right" onSubmit={handleSubmit}>
             <h2>Send us a Message</h2>
             
             <div className="form-group">

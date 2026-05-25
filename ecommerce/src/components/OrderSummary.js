@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { handleImageError } from '../utils/imageFallback';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 import '../styles/OrderSummary.css';
 
 // OrderSummary component - Show order summary and delivery tracking
@@ -12,6 +14,8 @@ function OrderSummary({ cart }) {
   const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const tax = subtotal * 0.1;
   const total = subtotal + tax;
+
+  useScrollReveal();
 
   // Handle place order
   const handlePlaceOrder = () => {
@@ -47,7 +51,7 @@ function OrderSummary({ cart }) {
 
         {cart.length === 0 ? (
           // Empty Cart Message
-          <div className="empty-order">
+          <div className="empty-order reveal reveal-zoom">
             <p>Your cart is empty. Add items to place an order.</p>
             <Link to="/products" className="shop-now-btn">
               Shop Now
@@ -57,14 +61,20 @@ function OrderSummary({ cart }) {
           // Order Content
           <div className="order-content">
             {/* Order Items */}
-            <div className="order-items">
+            <div className="order-items reveal reveal-left">
               <h2>Items in Your Order</h2>
               <div className="items-list">
                 {cart.map(item => (
                   <div key={item.id} className="order-item">
                     <div className="item-image">
                       {item.imageUrl ? (
-                        <img src={item.imageUrl} alt={item.name} className="item-img" />
+                        <img
+                          src={item.imageUrl}
+                          alt={item.name}
+                          className="item-img"
+                          loading="lazy"
+                          onError={handleImageError}
+                        />
                       ) : (
                         <span className="item-icon">{item.image}</span>
                       )}
@@ -81,7 +91,7 @@ function OrderSummary({ cart }) {
             </div>
 
             {/* Order Totals */}
-            <div className="order-totals">
+            <div className="order-totals reveal reveal-right" style={{ '--delay': '0.05s' }}>
               <h2>Payment Details</h2>
               <div className="total-row">
                 <span>Subtotal:</span>
@@ -102,7 +112,7 @@ function OrderSummary({ cart }) {
             </div>
 
             {/* Delivery Tracking */}
-            <div className="delivery-tracking">
+            <div className="delivery-tracking reveal reveal-zoom" style={{ '--delay': '0.1s' }}>
               <h2>Track Your Delivery</h2>
 
               {!orderPlaced ? (

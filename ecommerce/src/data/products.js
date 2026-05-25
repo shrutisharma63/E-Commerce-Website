@@ -10,7 +10,7 @@ export const products = [
     originalPrice: 6640,
     discount: 37,
     image: '🎧',
-    imageUrl: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e',
+    imageUrl: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=80',
     description: 'High-quality wireless headphones with noise cancellation'
   },
   {
@@ -22,7 +22,7 @@ export const products = [
     originalPrice: 24900,
     discount: 33,
     image: '⌚',
-    imageUrl: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30',
+    imageUrl: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=80',
     description: 'Track your fitness and receive notifications'
   },
   {
@@ -34,7 +34,7 @@ export const products = [
     originalPrice: 1660,
     discount: 35,
     image: '🔌',
-    imageUrl: 'https://images.unsplash.com/photo-1625948515291-69613efd103f',
+    imageUrl: 'https://images.unsplash.com/photo-1625948515291-69613efd103f?auto=format&fit=crop&w=900&q=80',
     description: 'Durable USB-C charging cable'
   },
   {
@@ -46,7 +46,7 @@ export const products = [
     originalPrice: 4150,
     discount: 40,
     image: '🔋',
-    imageUrl: 'https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5',
+    imageUrl: 'https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?auto=format&fit=crop&w=900&q=80',
     description: 'Portable power bank 20000mAh'
   },
 
@@ -60,7 +60,7 @@ export const products = [
     originalPrice: 2490,
     discount: 50,
     image: '👕',
-    imageUrl: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab',
+    imageUrl: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=80',
     description: 'Comfortable 100% cotton t-shirt',
     featured: true
   },
@@ -73,7 +73,7 @@ export const products = [
     originalPrice: 5810,
     discount: 43,
     image: '👖',
-    imageUrl: 'https://images.unsplash.com/photo-1542272453-a0ae3b65aca7',
+    imageUrl: 'https://images.unsplash.com/photo-1542272453-a0ae3b65aca7?auto=format&fit=crop&w=900&q=80',
     description: 'Classic blue denim jeans with perfect fit',
     featured: true
   },
@@ -86,7 +86,7 @@ export const products = [
     originalPrice: 8300,
     discount: 40,
     image: '👟',
-    imageUrl: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff',
+    imageUrl: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80',
     description: 'Lightweight running shoes with comfort support',
     featured: true
   },
@@ -99,7 +99,7 @@ export const products = [
     originalPrice: 14940,
     discount: 50,
     image: '🧥',
-    imageUrl: 'https://images.unsplash.com/photo-1551028719-00167b16ebc5',
+    imageUrl: 'https://images.unsplash.com/photo-1551028719-00167b16ebc5?auto=format&fit=crop&w=900&q=80',
     description: 'Warm and waterproof winter jacket',
     featured: true
   },
@@ -114,7 +114,7 @@ export const products = [
     originalPrice: 2905,
     discount: 29,
     image: '📖',
-    imageUrl: 'https://images.unsplash.com/photo-1532012197267-da84d127e765',
+    imageUrl: 'https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=900&q=80',
     description: 'Complete guide to JavaScript programming'
   },
   {
@@ -126,7 +126,7 @@ export const products = [
     originalPrice: 3735,
     discount: 22,
     image: '📚',
-    imageUrl: 'https://images.unsplash.com/photo-1543002588-d83cedbc4656',
+    imageUrl: 'https://images.unsplash.com/photo-1543002588-d83cedbc4656?auto=format&fit=crop&w=900&q=80',
     description: 'Learn React from basics to advanced'
   },
   {
@@ -138,7 +138,7 @@ export const products = [
     originalPrice: 2490,
     discount: 33,
     image: '📕',
-    imageUrl: 'https://images.unsplash.com/photo-1507842217343-583f7270bfba',
+    imageUrl: 'https://images.unsplash.com/photo-1507842217343-583f7270bfba?auto=format&fit=crop&w=900&q=80',
     description: 'Master responsive web design'
   },
   {
@@ -150,7 +150,7 @@ export const products = [
     originalPrice: 3320,
     discount: 25,
     image: '📗',
-    imageUrl: 'https://images.unsplash.com/photo-1495446815901-a7297e3ffe02',
+    imageUrl: 'https://images.unsplash.com/photo-1495446815901-a7297e3ffe02?auto=format&fit=crop&w=900&q=80',
     description: 'Advanced CSS techniques and tips'
   }
 ];

@@ -1,8 +1,13 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
+import { handleImageError } from '../utils/imageFallback';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 import '../styles/Wishlist.css';
 
 // Wishlist component - Display favorite products
 function Wishlist({ wishlist, removeFromWishlist, moveWishlistToCart }) {
+  useScrollReveal();
+
   return (
     <div className="wishlist">
       <div className="wishlist-container">
@@ -10,7 +15,7 @@ function Wishlist({ wishlist, removeFromWishlist, moveWishlistToCart }) {
 
         {wishlist.length === 0 ? (
           // Empty Wishlist Message
-          <div className="empty-wishlist">
+          <div className="empty-wishlist reveal reveal-zoom">
             <p>Your wishlist is empty</p>
             <Link to="/products" className="start-shopping-btn">
               Start Shopping
@@ -19,13 +24,19 @@ function Wishlist({ wishlist, removeFromWishlist, moveWishlistToCart }) {
         ) : (
           // Wishlist Items
           <div className="wishlist-content">
-            <div className="wishlist-items">
+            <div className="wishlist-items reveal reveal-left">
               {wishlist.map(item => (
                 <div key={item.id} className="wishlist-item">
                   {/* Product Image */}
                   <div className="item-image">
                     {item.imageUrl ? (
-                      <img src={item.imageUrl} alt={item.name} className="item-img" />
+                      <img
+                        src={item.imageUrl}
+                        alt={item.name}
+                        className="item-img"
+                        loading="lazy"
+                        onError={handleImageError}
+                      />
                     ) : (
                       <span className="item-icon">{item.image}</span>
                     )}
@@ -60,7 +71,7 @@ function Wishlist({ wishlist, removeFromWishlist, moveWishlistToCart }) {
             </div>
 
             {/* Wishlist Summary */}
-            <div className="wishlist-summary">
+            <div className="wishlist-summary reveal reveal-right" style={{ '--delay': '0.05s' }}>
               <h2>Wishlist Summary</h2>
               <p>Total Items: <strong>{wishlist.length}</strong></p>
               <p>Total Value: <strong>₹{wishlist.reduce((sum, item) => sum + item.price, 0).toLocaleString('en-IN')}</strong></p>

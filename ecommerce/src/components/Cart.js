@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { handleImageError } from '../utils/imageFallback';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 import '../styles/Cart.css';
 
 // Cart component - Display shopping cart items
@@ -13,6 +15,8 @@ function Cart({ cart, removeFromCart, updateCartQuantity }) {
   // Calculate total items
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
 
+  useScrollReveal();
+
   return (
     <div className="cart">
       <div className="cart-container">
@@ -20,7 +24,7 @@ function Cart({ cart, removeFromCart, updateCartQuantity }) {
 
         {cart.length === 0 ? (
           // Empty Cart Message
-          <div className="empty-cart">
+          <div className="empty-cart reveal reveal-zoom">
             <p>Your cart is empty</p>
             <Link to="/products" className="continue-shopping-btn">
               Continue Shopping
@@ -30,13 +34,19 @@ function Cart({ cart, removeFromCart, updateCartQuantity }) {
           // Cart Items
           <div className="cart-content">
             {/* Cart Items List */}
-            <div className="cart-items">
+            <div className="cart-items reveal reveal-left">
               {cart.map(item => (
                 <div key={item.id} className="cart-item">
                   {/* Product Image */}
                   <div className="item-image">
                     {item.imageUrl ? (
-                      <img src={item.imageUrl} alt={item.name} className="item-img" />
+                      <img
+                        src={item.imageUrl}
+                        alt={item.name}
+                        className="item-img"
+                        loading="lazy"
+                        onError={handleImageError}
+                      />
                     ) : (
                       <span className="item-icon">{item.image}</span>
                     )}
@@ -84,7 +94,7 @@ function Cart({ cart, removeFromCart, updateCartQuantity }) {
             </div>
 
             {/* Cart Summary */}
-            <div className="cart-summary">
+            <div className="cart-summary reveal reveal-right" style={{ '--delay': '0.05s' }}>
               <h2>Order Summary</h2>
               <div className="summary-row">
                 <span>Subtotal:</span>

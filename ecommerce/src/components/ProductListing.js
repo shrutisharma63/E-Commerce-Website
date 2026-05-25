@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { products, getCategories } from '../data/products';
+import { handleImageError } from '../utils/imageFallback';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 import '../styles/ProductListing.css';
 
 // ProductListing component - Display products with category tabs
@@ -16,6 +18,8 @@ function ProductListing({ addToCart, addToWishlist, wishlist }) {
       ? products
       : products.filter(product => product.category === selectedCategory);
 
+  useScrollReveal();
+
   // Check if product is in wishlist
   const isInWishlist = (productId) => {
     return wishlist.some(item => item.id === productId);
@@ -27,7 +31,7 @@ function ProductListing({ addToCart, addToWishlist, wishlist }) {
         <h1>Our Products</h1>
 
         {/* Category Tabs */}
-        <div className="category-tabs">
+        <div className="category-tabs reveal reveal-left">
           {categories.map(category => (
             <button
               key={category}
@@ -41,12 +45,22 @@ function ProductListing({ addToCart, addToWishlist, wishlist }) {
 
         {/* Product Grid */}
         <div className="products-grid">
-          {filteredProducts.map(product => (
-            <div key={product.id} className="product-card">
+          {filteredProducts.map((product, index) => (
+            <div
+              key={product.id}
+              className="product-card reveal reveal-zoom"
+              style={{ '--delay': `${index * 0.04}s` }}
+            >
               {/* Product Image */}
               <div className="product-image">
                 {product.imageUrl ? (
-                  <img src={product.imageUrl} alt={product.name} className="product-img" />
+                  <img
+                    src={product.imageUrl}
+                    alt={product.name}
+                    className="product-img"
+                    loading="lazy"
+                    onError={handleImageError}
+                  />
                 ) : (
                   <span className="product-icon">{product.image}</span>
                 )}

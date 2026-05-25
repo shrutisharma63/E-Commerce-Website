@@ -22,8 +22,15 @@ function Navbar({ cartCount, wishlistCount }) {
       <div className="navbar-container">
         {/* Logo */}
         <Link to="/" className="navbar-logo" onClick={closeMenu}>
-          <span className="logo-icon">🛍️</span>
-          <span className="logo-text">Style Cart</span>
+          <img
+            className="logo-icon"
+            src={`${process.env.PUBLIC_URL}/aurastyle-logo.svg`}
+            alt="AuraStyle logo"
+            onError={(event) => {
+              event.currentTarget.onerror = null;
+              event.currentTarget.src = `${process.env.PUBLIC_URL}/aurastyle-mark.svg`;
+            }}
+          />
         </Link>
 
         {/* Hamburger menu for mobile */}

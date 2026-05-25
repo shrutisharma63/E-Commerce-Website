@@ -8,9 +8,12 @@ import Wishlist from './components/Wishlist';
 import OrderSummary from './components/OrderSummary';
 import About from './components/About';
 import ContactUs from './components/ContactUs';
+import { useSmoothScrollMotion } from './hooks/useSmoothScrollMotion';
 import './App.css';
 
 function App() {
+  useSmoothScrollMotion();
+
   // State management for cart and wishlist
   const [cart, setCart] = useState([]);
   const [wishlist, setWishlist] = useState([]);
